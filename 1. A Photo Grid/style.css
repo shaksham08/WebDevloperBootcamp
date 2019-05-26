@@ -1,0 +1,16 @@
+
+img{
+    width: 30%;;
+    float: left;
+    margin: 1.66%;
+}
+h1{
+    margin-left: 1.33%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    border-bottom: 3px solid #f1f1f1;
+    width: 30%;
+    padding-bottom: 20px;
+    text-transform:uppercase;
+}
