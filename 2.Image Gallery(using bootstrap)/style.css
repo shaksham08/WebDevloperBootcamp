@@ -1,0 +1,9 @@
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+height: 220px;
+width: 100%;
+}
+body{
+    width: 100%;
+    padding-top: 100px;
+
+}
