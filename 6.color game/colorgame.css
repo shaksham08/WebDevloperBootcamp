@@ -5,12 +5,10 @@ body {
 }
 
 .square {
-	width: 30%;
 	background: purple;
 	padding-bottom: 30%;
-	float: left;
-	margin: 1.66%;
 	border-radius: 50%;
+	height: 150px;
 	transition: background 0.6s;
 	--webkit-transition: background 0.6s;
 	--moz-transition: background 0.6s;
@@ -18,7 +16,13 @@ body {
 
 #container {
 	margin: 20px auto;
-	max-width: 600px;
+	max-width: 700px;
+	height: 600px;
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 20px;
 }
 
 h1 {
@@ -72,7 +76,30 @@ button {
 	--moz-transition: all 0.3s;
 }
 
+#designed {
+	color: white;
+	text-align: center;
+}
+
+#name {
+	font-family: 'Pacifico', cursive;
+}
+
 button:hover {
 	color: white;
 	background-color: steelblue;
+}
+
+@media (max-width: 767px) {
+	#container {
+		margin: 20px 25px;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+a:hover {
+	text-decoration: none;
 }
