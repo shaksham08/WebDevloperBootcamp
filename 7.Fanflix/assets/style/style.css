@@ -83,3 +83,10 @@ html,body{
     font-size: 14px;
     font-weight: 400;
 }
+
+.errorMessage{
+    color: #f00;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
