@@ -1,2 +1,4 @@
-#  WEB Based Learning_Projects
-My Portfilio of Projects Done while learning
+# Web projects   --- shaksham sinha
+
+This is my repostry for my web projects which i will be during during my learning phase.
+
