@@ -1,51 +1,55 @@
-const express = require("express");
-const app = express();
-
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost:27017/blod_demo2", {
+mongoose.connect("mongodb://localhost:27017/test2", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-var Post = require("./models/post");
-var User = require("./models/user");
+var postSchema = new mongoose.Schema({
+  title: String,
+  content: String,
+});
 
-Post.create(
-  {
-    title: "How to cook the best burger pt. 4",
-    content: "AKLSJDLAKSJD",
-  },
-  function (err, post) {
-    User.findOne({ email: "shaksham@gmail.com" }, function (err, foundUser) {
-      if (err) {
-        console.log(err);
-      } else {
-        foundUser.posts.push(post);
-        foundUser.save(function (err, data) {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(data);
-          }
-        });
-      }
-    });
-  }
-);
+var Post = mongoose.model("Post", postSchema);
+
+var UserSchema = new mongoose.Schema({
+  email: String,
+  name: String,
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Post",
+    },
+  ],
+});
+
+var User = mongoose.model("User", UserSchema);
+
+// User.create(
+//   {
+//     email: "shakshamsinha08@gmail.com",
+//     name: "shaksham sinha",
+//   },
+//   (err, user) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(user);
+//     }
+//   }
+// );
 
 // Post.create(
 //   {
-//     title: "How to cook the best burger pt. 4",
-//     content: "AKLSJDLAKSJD",
+//     title: "litchie",
+//     content: "lithie is best",
 //   },
-//   function (err, post) {
-//     User.findOne({ email: "shaksham@gmail.com" }, function (err, foundUser) {
+//   (err, post) => {
+//     User.findOne({ email: "shakshamsinha08@gmail.com" }, (err, foundUser) => {
 //       if (err) {
 //         console.log(err);
 //       } else {
 //         foundUser.posts.push(post);
-//         foundUser.save(function (err, data) {
+//         foundUser.save((err, data) => {
 //           if (err) {
 //             console.log(err);
 //           } else {
@@ -57,20 +61,20 @@ Post.create(
 //   }
 // );
 
-// Find user
-// find all posts for that user
-
-// User.findOne({ email: "shaksham@gmail.com" })
-//   .populate("posts")
-//   .exec(function (err, user) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(user);
-//     }
-//   });
-
-// User.create({
-//   email: "shaksham@gmail.com",
-//   name: "Shaksham SInha",
+// User.findOne({ email: "shakshamsinha08@gmail.com" }, (err, user) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(user);
+//   }
 // });
+
+// User.findOne({ email: "shakshamsinha08@gmail.com" }, (err, user) => {
+//   if (err) {
+//     console.log(err);
+//   }
+// })
+//   .populate("posts")
+//   .exec((err, post) => {
+//     console.log(post);
+//   });
